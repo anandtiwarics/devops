@@ -38,13 +38,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: [publish-job]
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
+      - name: Check out artifacts
+        uses: actions/upload-artifact@v1
       - name: install archerysec 
         run: pip install archerysec-cli --force --ignore-installed six
       - name: run dependency check scan through archerysec
         run: |
-          ls -la && archerysec-cli -h ${ARCHERYSEC_HOST} -t ${ARCHERYSEC_TOKEN} --cicd_id=345311ce-be68-45b1-b5e8-6c8e8e239028 --project=29b9ce74-f2c7-417d-af7d-4de2d8f810c3 --dependency-check --report_path=$(pwd)
+          archerysec-cli -h ${ARCHERYSEC_HOST} -t ${ARCHERYSEC_TOKEN} --cicd_id=345311ce-be68-45b1-b5e8-6c8e8e239028 --project=29b9ce74-f2c7-417d-af7d-4de2d8f810c3 --dependency-check --report_path=$(pwd)
 
         env:
           ARCHERYSEC_HOST: ${{ secrets.ARCHERYSEC_HOST }}
