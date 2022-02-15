@@ -39,7 +39,7 @@ jobs:
     needs: [publish-job]
     steps:
       - name: Check out artifacts
-        uses: actions/upload-artifact@v1
+        uses: actions/download-artifact@v1
         with:
           name: Package
           path: staging
