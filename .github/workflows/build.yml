@@ -47,7 +47,7 @@ jobs:
         run: pip install archerysec-cli --force --ignore-installed six
       - name: run dependency check scan through archerysec
         run: |
-          ls -la && archerysec-cli -h http://100.24.71.11 -t w4OpEZ3lxFC5Jz9YXfa7RBKhWDT615C_wGt5CayCPZ7knU48uMJUOs3bGyjlSMzj --cicd_id=0171fc28-7e8e-40b2-8381-fac7631310f2 --project=29b9ce74-f2c7-417d-af7d-4de2d8f810c3 --dependency-check --report_path=$(pwd)
+          ls -la && pwd && archerysec-cli -h http://100.24.71.11 -t w4OpEZ3lxFC5Jz9YXfa7RBKhWDT615C_wGt5CayCPZ7knU48uMJUOs3bGyjlSMzj --cicd_id=0171fc28-7e8e-40b2-8381-fac7631310f2 --project=29b9ce74-f2c7-417d-af7d-4de2d8f810c3 --dependency-check --report_path=$(pwd)
 
         env:
           ARCHERYSEC_HOST: ${{ secrets.ARCHERYSEC_HOST }}
