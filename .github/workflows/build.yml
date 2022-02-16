@@ -41,7 +41,7 @@ jobs:
         run: pip install archerysec-cli==3.1.12 --force --ignore-installed six
       - name: run zap scan through archerysec
         run: |
-          mkdir $(pwd)/zap-report && archerysec-cli -h http://54.211.100.97 -t GjnSo-99yta1u7o9-7MQw2KKxaQSICkxFo1f2e159zH0AvzhKtVEa_9jodpUPa8J --cicd_id=3fcfb9af-b58e-44b0-b703-b9c1e240b4ef --project=503b2dc4-d431-47ef-b0a5-d664745c4c85 --zap-base-line-scan --report_path=$(pwd)/zap-report
+          sudo archerysec-cli -h http://54.211.100.97 -t GjnSo-99yta1u7o9-7MQw2KKxaQSICkxFo1f2e159zH0AvzhKtVEa_9jodpUPa8J --cicd_id=3fcfb9af-b58e-44b0-b703-b9c1e240b4ef --project=503b2dc4-d431-47ef-b0a5-d664745c4c85 --zap-base-line-scan --report_path=$(pwd)
   # SCA:
   #   name: Scurity Scanner
   #   runs-on: ubuntu-latest
